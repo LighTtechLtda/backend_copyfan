@@ -1,13 +1,13 @@
 import { Column, Entity, PrimaryColumn, Timestamp } from "typeorm"
 import { v4 as uuid } from "uuid"
 
-@Entity("tasks")
+@Entity("pagamento")
 export class Pagamento {
     @PrimaryColumn()
     id: string
     
     @Column({nullable: false})
-    datahorapagamento: Timestamp
+    datahorapagamento: Date
 
     @Column()
     statuspagamento: boolean
@@ -21,6 +21,7 @@ export class Pagamento {
     constructor() {
         this.id = uuid()
         this.statuspagamento = false
+        this.datahorapagamento = new Date()
         
     }
 }

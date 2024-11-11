@@ -1,23 +1,36 @@
 import { Router} from "express"
-import { TaskController } from "../controllers/taskController"
+import { PagamentoController} from "../controllers/pagamentoController"
+import { PerfilController} from "../controllers/perfilController"
 
 const router = Router()
-const controller = new TaskController()
+const controllerPagamento = new PagamentoController()
+const controllerPerfil = new PerfilController()
 
 router.get("/", (request, response) => {
     response.json("home page")
 })
 
 // Rota Read All
-router.get("/tasks", controller.readAllTask) 
+router.get("/pagamento", controllerPagamento.readAllPagamento) 
 // Rota Read One
-router.get("/tasks/:id",controller.readOneTask)
+router.get("/pagamento/:id",controllerPagamento.readOnePagamento)
 
-router.post("/tasks", controller.createTask)
+router.post("/pagamento", controllerPagamento.createPagamento)
 //
-router.put("tasks/:id", controller.updateTask)
+router.put("pagamento/:id", controllerPagamento.updatePagamento)
 
-router.delete("/tasks/:id" , controller.deleteTask)
+router.delete("/pagamento/:id" , controllerPagamento.deletePagamento)
+
+// Rota Read All
+router.get("/perfil", controllerPerfil.readAllPerfil) 
+// Rota Read One
+router.get("/perfil/:id",controllerPerfil.readOnePerfil)
+
+router.post("/perfil", controllerPerfil.createPerfil)
+//
+router.put("perfil/:id", controllerPerfil.updatePerfil)
+
+router.delete("/perfil/:id" , controllerPerfil.deletePerfil)
 
 
 export default router
