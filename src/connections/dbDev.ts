@@ -1,5 +1,7 @@
 import { DataSource } from "typeorm";
-import { Task } from "../models/pagamento";
+import { Pagamento} from "../models/pagamento";
+import { Perfil} from "../models/perfil";
+import { Usuario} from "../models/usuario";
 
 export const DevDataSource = new DataSource ({
   type: "postgres",
@@ -8,6 +10,6 @@ export const DevDataSource = new DataSource ({
   username: "postgres",
   password: "postgres",
   database: "backend",
-  entities: [Task]
+  entities: [Pagamento, Perfil, Usuario]
 
 })
